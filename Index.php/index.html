@@ -11,12 +11,20 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
       rel="stylesheet"
     />
-
+    <style>
+      .img-container {
+        text-align: center;
+      }
+    </style>
     <!-- Estilos de los botones -->
+    <div class="img-container"> <!-- Block parent element -->
+      <img src="LOGOTIPO FINAL.png"  width="700"height="200">
+    </div>
     <link rel="stylesheet" href="uno.css" />
     <link rel="stylesheet" href="dos.css" />
     <link rel="stylesheet" href="tres.css" />   
-    <title>Botones Animados con CSS</title>
+    <title>Reportes Colima</title>
+    
   </head>
 
   <body>
@@ -24,9 +32,15 @@
       <h1>Reportes</h1>
 
       <div class="contenedor-botones">
-        <button class="boton uno"><span>Fallos de impresoras</span></button>
-        <button class="boton dos"><span>Tecnicas y redes</span></button>
-        <button class="boton tres"><span>Prestamo equipos</span></button>
+        <a href="Impresoras.html">
+          <button class="boton uno" onclick="Impresoras.html"> <span >Fallos de impresoras</span> </button>
+        </a>
+        <a href="Tecnico.html">
+          <button class="boton dos"><span>Tecnicas y redes</span></button>
+        </a>
+        <a href="Prestamos.html">
+          <button class="boton tres"><span>Prestamo equipos</span></button>
+        </a>
           <div class="icono">
       </div>
     </div>
