@@ -33,7 +33,7 @@
   }
 
   input[type="submit"] {
-    background-color: #4caf50;
+    background-color: #06b8f4;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -60,7 +60,8 @@
 
     <label for="descripcion">Descripción del Problema:</label>
     <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-    <input type="submit" name="registrar" value="registrar" />
+    <input type="submit" value="Regresar" onclick="window.history.back()" />
+    <input type="submit" name="registrar" value="Levantar Reporte" />
   </form>
 </body>
 

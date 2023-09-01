@@ -8,17 +8,17 @@ $getconex = $getmysql->conex();
 //boton para registrar y verificar si esta con informacion
 if (isset($_POST["registrar"])) {
     //cuadros de texto con su respectivos datos
-    $nombre = $_POST["nombre"];
-    $area = $_POST["area"];
-    $impresora = $_POST["impresora"];
+    $dependencia = $_POST["dependencia"];
+    $receptor = $_POST["receptor"];
     $fecha = $_POST["fecha"];
-    $descripcion = $_POST["descripcion"];
+    $catalogo = $_POST["catalogo"];
+    $necesita_personal = $_POST["necesita_personal"];
     //consulta mysql
-    $query = "INSERT INTO impresoras (Nombre_Reportante,Area,NumeroImpresora,Fecha_Hora,Descripcion,Estado,Detalle_Pendiente) VALUES (?,?,?,?,?,true,'sin observaciones')";
+    $query = "INSERT INTO prestamo_equipos (Dependencia,Receptor,FechaYHora,Catalogo,RequierePersonal,FechaDevolucion) VALUES (?,?,?,?,?,?)";
     //enviar la consulta y preparar la ejecucion 
     $sentencia = mysqli_prepare($getconex, $query);
     //enviar datos en los cuadros de texto
-    mysqli_stmt_bind_param($sentencia, "sssss", $nombre, $area, $impresora, $fecha, $descripcion);
+    mysqli_stmt_bind_param($sentencia, "ssssss", $dependencia, $receptor, $fecha, $catalogo, $necesita_personal, $fecha);
     //ejecutar la consulta
     mysqli_stmt_execute($sentencia);
     //mostrar celdas afectadas

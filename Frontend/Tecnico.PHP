@@ -32,7 +32,7 @@
     }
 
     input[type="submit"] {
-      background-color: #4caf50;
+      background-color: #06b8f4;
       color: white;
       padding: 10px 20px;
       border: none;
@@ -62,6 +62,7 @@
       <option value="Redes">Redes</option>
       <option value="Otros">Otros</option>
     </select>
+    <input type="submit" value="Regresar" onclick="window.history.back()" />
     <input type="submit" name="registrar" value="registrar" />
   </form>
 </body>
