@@ -39,6 +39,11 @@
       border-radius: 4px;
       cursor: pointer;
     }
+
+    html {
+      border: 8px solid #06b8f4;
+      min-height: 100%;
+    }
   </style>
 </head>
 
@@ -62,9 +67,23 @@
       <option value="Redes">Redes</option>
       <option value="Otros">Otros</option>
     </select>
+    <label for="Otros">¿Que deseas reportar?</label>
+    <input type="text" id="otros" name="otros" />
     <input type="submit" value="Regresar" onclick="window.history.back()" />
     <input type="submit" name="registrar" value="registrar" />
   </form>
+  <script>
+    let opcion = document.getElementById(categoria);
+    let caja = document.getElementById(otros);
+    opcion.addEventListener("change", () => {
+      let elementoElegido = opcion.options[opcion.selectedIndex].value;
+      if (elementoElegido === "Otros") {
+        caja.disabled = false;
+      } else {
+        caja.disabled = true;
+      }
+    });
+  </script>
 </body>
 
 </html>

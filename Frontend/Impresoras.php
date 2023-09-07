@@ -40,6 +40,11 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
+  html {
+    border: 8px solid #06b8f4;
+    min-height: 100%;
+  }
 </style>
 
 <body>

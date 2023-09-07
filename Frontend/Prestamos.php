@@ -53,10 +53,15 @@ $mysqli = new mysqli('localhost', 'root', '', 'siste_reportes');
       border-radius: 4px;
       cursor: pointer;
     }
+
+    html {
+      border: 8px solid #06b8f4;
+      min-height: 100%;
+    }
   </style>
-  
+
   <div class="img-container"> <!-- Block parent element -->
-    <img src="LOGOTIPO FINAL.png" width="700" height="200" >
+    <img src="LOGOTIPO FINAL.png" width="700" height="200">
   </div>
 </head>
 
