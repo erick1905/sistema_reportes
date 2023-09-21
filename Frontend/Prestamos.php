@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <?php
-// $mysqli = new mysqli('localhost', 'usuario', 'password', 'base_de_datos');
 $mysqli = new mysqli('localhost', 'root', '', 'siste_reportes');
 
 ?>
 <html>
 
 <head>
+  <div class="img-container">
+    <img src="LOGOTIPO FINAL.png" width="700" height="200">
+  </div>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registro de Entrega </title>
+  <title>Prestamo Equipos </title>
   <style>
+    .img-container {
+      text-align: center;
+    }
+
     body {
+      text-align: center;
       font-family: Arial, sans-serif;
     }
 
@@ -60,17 +67,16 @@ $mysqli = new mysqli('localhost', 'root', '', 'siste_reportes');
     }
   </style>
 
-  <div class="img-container"> <!-- Block parent element -->
-    <img src="LOGOTIPO FINAL.png" width="700" height="200">
+  <div class="img-container">
   </div>
 </head>
 
 <body>
-  <h1>Registro de Entrega</h1>
+  <h1>Resgistro de prestamo de equipo</h1>
   <form action="/sistema_reportes/php/InsertarPrestamo.php" method="POST">
     <label for="dependencia">Dependencia:</label>
     <select id="dependencia" name="dependencia" required>
-      <option value="0">Selecciona:</option>
+      <option value="0">Seleccionar dependencia:</option>
 
       <?php
 
@@ -82,7 +88,6 @@ $mysqli = new mysqli('localhost', 'root', '', 'siste_reportes');
       }
 
       ?>
-      <!-- Agrega más opciones según tus necesidades -->
     </select>
 
     <label for="receptor">Nombre del Receptor:</label>
@@ -94,10 +99,18 @@ $mysqli = new mysqli('localhost', 'root', '', 'siste_reportes');
     <label for="catalogo">Catalogo:</label>
     <select id="catalogo" name="catalogo" required>
       <option value="">Selecciona un elemento del catalogo</option>
-      <option value="Elemento 1">Elemento 1</option>
-      <option value="Elemento 2">Elemento 2</option>
-      <option value="Elemento 3">Elemento 3</option>
-      <!-- Agrega más opciones según tus necesidades -->
+      <option value="0">Seleccionar dependencia:</option>
+
+      <?php
+
+      $query = $mysqli->query("SELECT * FROM catalogo");
+
+      while ($valores = mysqli_fetch_array($query)) {
+
+        echo '<option value="' . $valores['Producto'] . '">' . $valores['Producto'] . '</option>';
+      }
+
+      ?>
     </select>
     <label for="necesita_personal">¿Necesita personal?</label>
     <input type="checkbox" id="necesita_personal" name="necesita_personal" />
