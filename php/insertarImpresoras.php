@@ -25,9 +25,9 @@ if (isset($_POST["registrar"])) {
     $afectado = mysqli_stmt_affected_rows($sentencia);
     //if para verificar que se agrego correctamente
     if ($afectado == 1) {
-        echo "<script> alert('El empleado [$nombre] agrego correctamente su reporte'); location.href='../index.php'; </script>";
+        echo "<script> alert('El empleado [$nombre] agrego correctamente su reporte'); location.href='/sistema_reportes/Login/index/index.php'; </script>";
     } else {
-        echo "<script> alert('El empleado [$nombre] no agrego correctamente su reporte :( '); location.href='../index.php'; </script>";
+        echo "<script> alert('El empleado [$nombre] no agrego correctamente su reporte :( '); location.href=' /sistema_reportes/Login/index/index.php'; </script>";
     }
     //cerrar consulta
     mysqli_stmt_close($sentencia);

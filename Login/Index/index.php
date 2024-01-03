@@ -31,7 +31,23 @@ if (!isset($_SESSION['usuario'])) {
     }
 
     .img-container {
-      text-align: center;
+      text-align: left;
+    }
+
+    .contenedor_texto {
+      text-align: right;
+      /* Alinea el texto a la derecha */
+      font-weight: 50;
+      color: #141414;
+      padding: 5px 10px;
+      position: absolute;
+      /* Posiciona el elemento de manera absoluta */
+      top: 0;
+      /* Lo coloca en la parte superior de su contenedor */
+      right: 0;
+      /* Lo coloca en la esquina superior derecha */
+      font-size: 24px;
+      /* Tamaño de fuente más grande (ajusta el valor según tus preferencias) */
     }
 
     html {
@@ -43,17 +59,19 @@ if (!isset($_SESSION['usuario'])) {
   <div class="img-container"> <!-- Block parent element -->
     <img src="LOGOTIPO FINAL.png" width="700" height="200">
   </div>
+  <div class="contenedor_texto"> <!-- Block parent element -->
+    <h3>Bienvenido <?= $_SESSION['usuario'] ?> &#127774;</h3>
+    <h4 id="fechaHora"></h4>
+  </div>
   <link rel="stylesheet" href="uno.css" />
   <link rel="stylesheet" href="dos.css" />
   <link rel="stylesheet" href="tres.css" />
   <title>Reportes Colima</title>
-
 </head>
 
 <body>
   <div class="contenedor">
     <h1>Reportes</h1>
-    <p>Hola de nuevo, <?= $_SESSION['usuario'] ?> !!!</p>
     <div class="contenedor-botones">
       <a href="\sistema_reportes\Frontend\Impresoras.php">
         <button class="boton uno" onclick="Impresoras.html"> <span>Fallos de impresoras</span> </button>
@@ -67,10 +85,36 @@ if (!isset($_SESSION['usuario'])) {
       <a href="\sistema_reportes\Frontend\CambiarContrasena.php">
         <button class="boton uno" onclick="Impresoras.html"> <span>Cambiar Contraseña</span> </button>
       </a>
+      <a href="\sistema_reportes\php\cerrarsesion.php">
+        <button class="boton uno" onclick="cerrarsesion.php"> <span>Cerrar sesion</span> </button>
+      </a>
       <div class="icono">
       </div>
     </div>
 
 </body>
+<script>
+  function mostrarFechaYHora() {
+    const fechaHoraElement = document.getElementById("fechaHora");
+    const fechaHora = new Date();
+    const opciones = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric'
+    };
+    const fechaHoraFormateada = fechaHora.toLocaleDateString('es-ES', opciones);
+    fechaHoraElement.textContent = "" + fechaHoraFormateada;
+  }
+
+  // Llama a la función para mostrar la fecha y hora actual cuando se carga la página.
+  mostrarFechaYHora();
+
+  // Actualiza la fecha y hora cada segundo (1000 milisegundos).
+  setInterval(mostrarFechaYHora, 1000);
+</script>
 
 </html>

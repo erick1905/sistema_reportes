@@ -78,12 +78,14 @@
 
 <body>
     <h1>Cambiar Contraseña</h1>
-    <form action="/sistema_reportes/php/insertar.php" method="POST">
+    <form action="/sistema_reportes/php/cambiar_clave.php" method="POST">
+        <label for="area">Ingresa Contraseña Actual:</label>
+        <input type="text" id="txtcalaveactual" name="contrasena_actual" required />
         <label for="area">Ingresa Contraseña Nueva:</label>
-        <input type="text" id="area" name="area" required />
+        <input type="text" id="txtcalavenueva" name="nueva_contrasena" required />
 
         <input type="submit" value="Cancelar" onclick="window.history.back()" />
-        <input type="submit" name="Cambiar" value="registrar" />
+        <input type="submit" name="btnmodificar" value="ok" />
     </form>
 </body>
 

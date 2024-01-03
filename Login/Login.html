@@ -11,7 +11,7 @@
       <div class="page">
         <div class="container">
           <div class="left">
-            <div class="login">Iniciar sesion</div>
+            <div class="login">Iniciar sesión</div>
             <div class="eula">Digitalizacion de reportes</div>
           </div>
           <div class="right">
@@ -50,10 +50,12 @@
                 type="password"
                 id="password"
                 name="password"
+                maxlength="256"
+                onkeypress="return check2(event)"
                 placeholder="Introduce tu contraseña"
                 required
               />
-              <input type="submit" id="submit" value="Submit" />
+              <input type="submit" id="submit" value="Iniciar sesión" />
             </div>
           </div>
         </div>
@@ -73,6 +75,20 @@
 
         // Patrón de entrada, en este caso solo acepta numeros y letras
         patron = /[A-Za-z0-9]/;
+        tecla_final = String.fromCharCode(tecla);
+        return patron.test(tecla_final);
+      }
+
+      function check2(e) {
+        tecla = document.all ? e.keyCode : e.which;
+
+        // Tecla de retroceso para borrar, siempre se permite
+        if (tecla == 8) {
+          return true;
+        }
+
+        // Patrón de entrada: acepta letras, números y otros caracteres permitidos, excluyendo " y '
+        patron = /^[A-Za-z0-9!@#$%^&*()_+=\[\]{}|;:,.<>?\\/\-]$/;
         tecla_final = String.fromCharCode(tecla);
         return patron.test(tecla_final);
       }

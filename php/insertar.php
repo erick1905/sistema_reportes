@@ -16,9 +16,9 @@ if (isset($_POST["registrar"])) {
     mysqli_stmt_execute($sentencia);
     $afectado = mysqli_stmt_affected_rows($sentencia);
     if ($afectado == 1) {
-        echo "<script> alert('El empleado [$nombre] se agrego correctamente'); location.href='../index.php'; </script>";
+        echo "<script> alert('El empleado [$nombre] se agrego correctamente'); location.href=' /sistema_reportes/Login/index/index.php'; </script>";
     } else {
-        echo "<script> alert('El empleado [$nombre] no agrego correctamente :( '); location.href='../index.php'; </script>";
+        echo "<script> alert('El empleado [$nombre] no agrego correctamente :( '); location.href=' /sistema_reportes/Login/index/index.php'; </script>";
     }
     mysqli_stmt_close($sentencia);
     mysqli_close($getconex);
